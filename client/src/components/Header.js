@@ -15,7 +15,7 @@ const Header = () => {
                     <Toolbar>
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             <Button className="Left-header-button" component={Link} to="/" color="inherit">Home</Button>
-                            <Button className="Left-header-button" component={Link} to="/search" color="inherit">Search</Button>
+                            {/*<Button className="Left-header-button" component={Link} to="/search" color="inherit">Search</Button>*/}
                         </Typography>
                         <Button component={Link} to="/logout" color="inherit">Logout</Button>
                     </Toolbar>
@@ -29,7 +29,7 @@ const Header = () => {
                     <Toolbar>
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             <Button className="Left-header-button" component={Link} to="/" color="inherit">Home</Button>
-                            <Button className="Left-header-button" component={Link} to="/search" color="inherit">Search</Button>
+                            {/*<Button className="Left-header-button" component={Link} to="/search" color="inherit">Search</Button>*/}
                         </Typography>
                         <Button component={Link} to="/login" color="inherit">Login</Button>
                         <Button component={Link} to="/register" color="inherit">Register</Button>

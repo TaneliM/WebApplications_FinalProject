@@ -40,9 +40,11 @@ router.post('/user/login',
                                 if (err) {
                                     throw err;
                                 }
-                                res.json({success: true, token});
+                                return res.json({success: true, token});
                             }
                         );
+                    } else {
+                        return res.status(403).json({errors: "Incorrect username or password."})
                     }
                 });
             } else {
@@ -96,12 +98,32 @@ router.get('/post/all', (req, res, next) => {
     });
 });
 
+router.get('/post/:id', (req, res, next) => {
+    Post.findOne({_id: req.params.id}, (err, post) => {
+        if(err) return next(err);
+        Comment.find({postId: req.params.id}, (err, comments) => {
+            let data = {post: post, comments: comments}
+            res.status(200).json(data);
+        });
+    });
+});
+
 router.post("/post/new", validateToken, (req, res, next) => {
     Post.create({
         title: req.body.title,
         text: req.body.text,
         user: req.user.username
     })
+    res.status(200).json({success: true});
+});
+
+router.post("/post/comment/new", validateToken, (req, res, next) => {
+    Comment.create({
+        text: req.body.text,
+        user: req.user.username,
+        postId: req.body.id
+    })
+    res.status(200).json({success: true});
 });
 
 module.exports = router;

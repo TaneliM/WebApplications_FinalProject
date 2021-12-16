@@ -17,6 +17,7 @@ function Login(props) {
             .then(response => response.json())
             .then(data => {
                 if (data.errors) {
+                    console.log(data.errors)
                     document.getElementById("error").innerHTML =  data.errors
                 }
                 if (data.token) {

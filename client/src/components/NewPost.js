@@ -21,7 +21,6 @@ const NewPost = (user) => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 window.location.href = "/";
             })
     }
@@ -30,6 +29,7 @@ const NewPost = (user) => {
         setFormData({...formData, [e.target.name]: e.target.value})
     }
 
+    
     return (
         <div>
             <h2>New post</h2>

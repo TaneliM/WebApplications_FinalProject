@@ -11,7 +11,7 @@ var apiRouter = require('./routes/api');
 
 var app = express();
 
-const mongoDB = "mongodb://localhost:27017/testdb";
+const mongoDB = "mongodb://localhost:27017/FinalProjectDB";
 mongoose.connect(mongoDB);
 mongoose.Promise = Promise;
 
@@ -39,7 +39,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  //res.render('error');
 });
 
 module.exports = app;
