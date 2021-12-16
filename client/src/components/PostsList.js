@@ -1,15 +1,18 @@
 import {useEffect, useState} from "react"
 import Post from "./Post"
 
+// Component for displaying a list of all posts.
 const PostsList = () => {
     const [data, setData] = useState([])
 
+    // Call to the backend api to provide all posts.
     useEffect(() => {
         fetch("/api/post/all")
             .then(response => response.json())
             .then(json => setData(json.posts))
     }, [])
 
+    // If no posts are provided.
     if (data.length == 0) {
         return (
         <div>

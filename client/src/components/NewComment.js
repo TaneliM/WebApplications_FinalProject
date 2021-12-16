@@ -1,5 +1,6 @@
 import { useState } from "react"
 
+// Component for leaving a comment to a post.
 const NewPost = (user) => {
     const [formData, setFormData] = useState({})
 
@@ -11,10 +12,12 @@ const NewPost = (user) => {
         e.preventDefault()
         formData.id = window.location.pathname.split("/")[2]
 
+        // Makes a call to the backend api to post the comment.
         fetch("/api/post/comment/new", {
             method: "POST",
             headers: {
                 "Content-type": "application/json",
+                // The token is provided to verify that the user is logged in.
                 "Authorization": "Auth " + localStorage.getItem("Token") 
             },
             body: JSON.stringify(formData),
@@ -26,10 +29,12 @@ const NewPost = (user) => {
             })
     }
 
+    // Updates the value when the user types the comment.
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value})
     }
 
+    // Form for writing and sending the comment.
     return (
         <div>
             <form onSubmit={submit} onChange={handleChange}>

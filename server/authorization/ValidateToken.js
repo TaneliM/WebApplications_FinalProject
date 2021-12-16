@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 
+// Function for validating the JWT sent by the frontend
 module.exports = function(req, res, next) {
     const authHeader = req.headers["authorization"];
     let token;

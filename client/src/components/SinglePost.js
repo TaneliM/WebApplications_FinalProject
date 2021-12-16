@@ -3,13 +3,17 @@ import Comment from "./Comment"
 import Post from "./Post"
 import NewComment from "./NewComment"
 
+// A component to display a single post and its comments on a single page.
 const SinglePost = () => {
     const [post, setPost] = useState([])
     const [comments, setComments] = useState([])
 
     useEffect(() => {
+        // gets the post's id from the url.
+        // There is most likely a better way to do this.
         const id = window.location.pathname.split("/")[2]
 
+        // Makes an api call to get the post contents and its comments.
         fetch("/api/post/" + id, {
             method: "GET"
         })
@@ -21,6 +25,7 @@ const SinglePost = () => {
             console.log();
     }, [])
 
+    // Checks if the user is logged in to display the form for making a new comment.
     if (localStorage.getItem("Token")) {
         return (
             <div>

@@ -7,7 +7,11 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import {Suspense} from "react";
 
+// Component for displaying the App bar at the top of the page
+// Uses Material ui components
 const Header = () => {
+    // Checks for the token in local storage to render the buttons on the app bar differently.
+    // There is probably a better solution but this is only used for rendering the page and it works.
     if (localStorage.getItem("Token")) {
         return (
             <Box sx={{ flexGrow: 1 }}>

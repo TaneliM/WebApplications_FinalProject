@@ -1,6 +1,6 @@
+// Component for displaying a single comment for a post
 const Comment = ({user, text}) => {
     return (
-        // I know this is weird
         <div className="comment">
             <p>user: {user}</p>
             <pre>

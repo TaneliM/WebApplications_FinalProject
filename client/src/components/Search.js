@@ -1,6 +1,7 @@
 import {useState} from "react"
 import PostsList from "./PostsList"
 
+// Unfinished, unused component to search for posts
 const Search = () => {
     const [formData, setFormData] = useState({})
 
